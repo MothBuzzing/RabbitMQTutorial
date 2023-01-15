@@ -836,7 +836,12 @@ RabbitMQ的消息模型的核心理念就是生产者从不将消息直接发送
 
 ```go
 q, err := ch.QueueDeclare(
-	""
+	"",    // queue name
+	false, // durable
+	false, // auto-delete	
+	true,  // exclusive
+	false, // no-wait
+	nil,   // args
 )
 ```
 
